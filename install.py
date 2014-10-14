@@ -21,6 +21,7 @@ VIMRC = join(HOME, ".vimrc")
 VIM = join(HOME, ".vim")
 ZSHRC = join(HOME, ".zshrc")
 ZSH = join(HOME, ".oh-my-zsh")
+TMUX = join(HOME, ".tmux.conf")
 
 
 def clean():
@@ -37,6 +38,9 @@ def clean():
 
     if exists(ZSH):
         rmtree(ZSH)
+
+    if exists(TMUX):
+        remove(TMUX)
 
 
 def create_vim_bundle():
@@ -104,6 +108,11 @@ def setup_zsh():
     copyfile(join(PWD, "xonecas.zsh-theme"), join(theme_folder, "xonecas.zsh-theme"))
 
 
+def setup_tmux():
+    """ Copy over the tmux rc """
+    copyfile(join(PWD, "tmux.conf"), TMUX)
+
+
 def main():
     clean()
 
@@ -116,6 +125,9 @@ def main():
     # zsh
     install_ohmyzsh()
     setup_zsh()
+
+    # tmux
+    setup_tmux()
 
     print "Done, your changes will be visible when the terminal resets."
 

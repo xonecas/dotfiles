@@ -45,4 +45,4 @@ command! W w
 set t_Co=256
 set t_ut=
 colorscheme gotham256
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=0

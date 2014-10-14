@@ -17,21 +17,33 @@ from time import sleep
 HOME = expanduser("~")
 PWD = dirname(__file__)
 
+VIMRC = join(HOME, ".vimrc")
+VIM = join(HOME, ".vim")
+ZSHRC = join(HOME, ".zshrc")
+ZSH = join(HOME, ".oh-my-zsh")
+
 
 def clean():
     """ This rests everything """
 
-    remove(join(HOME, ".vimrc"))
-    remove(join(HOME, ".zshrc"))
-    rmtree(join(HOME, ".vim"))
-    rmtree(join(HOME, ".oh-my-zsh"))
+    if exists(VIMRC):
+        remove(VIMRC)
+
+    if exists(VIM):
+        rmtree(VIM)
+
+    if exists(ZSHRC):
+        remove(ZSHRC)
+
+    if exists(ZSH):
+        rmtree(ZSH)
 
 
 def create_vim_bundle():
     """ Create necessary folders: .vim/bundle """
 
-    bundle = join(HOME, ".vim/bundle")
-    autoload = join(HOME, ".vim/autoload")
+    bundle = join(VIM, "bundle")
+    autoload = join(VIM, "autoload")
 
     if not exists(bundle):
         makedirs(bundle)
@@ -67,32 +79,25 @@ def clone_plugins():
 def setup_vim():
     """ copy the vim file """
 
-    vimrc = join(HOME, ".vimrc");
-
-    if not exists(vimrc):
-        copyfile(join(PWD, "vimrc"), vimrc)
+    if not exists(VIMRC):
+        copyfile(join(PWD, "vimrc"), VIMRC)
 
 
 def install_ohmyzsh():
     """ installs oh-my-zsh """
 
-    ohmyzsh_folder = join(HOME, ".oh-my-zsh")
-    zshrc_file = join(HOME, ".zshrc")
-    install_script = join(PWD, "ohmyzsh_install.sh")
+    call(["git", "clone", "https://github.com/robbyrussell/oh-my-zsh.git", ZSH])
+    copyfile(join(PWD, "zshrc"), ZSHRC)
+    print "Don't forget to set your SHELL: chsh -s /bin/zsh"
 
-    print "Script: %s" % install_script
-
-    call(["curl", "-L", "http://install.ohmyz.sh", "-o", install_script])
-    call(["sh", install_script])
 
 
 def setup_zsh():
     """ moves the file into the correct place """
 
-    zshrc = join(HOME, ".zshrc")
     theme_folder = join(HOME, ".oh-my-zsh/custom/themes")
 
-    copyfile(join(PWD, "zshrc"), zshrc)
+    copyfile(join(PWD, "zshrc"), ZSHRC)
 
     if not exists(theme_folder):
         makedirs(theme_folder)
@@ -100,19 +105,19 @@ def setup_zsh():
 
 
 def main():
-    #clean()
+    clean()
 
     # vim
-    #create_vim_bundle()
-    #install_pathogen()
-    #clone_plugins()
-    #setup_vim()
+    create_vim_bundle()
+    install_pathogen()
+    clone_plugins()
+    setup_vim()
 
     # zsh
     install_ohmyzsh()
     setup_zsh()
 
-    print "done."
+    print "Done, your changes will be visible when the terminal resets."
 
 
 if __name__ == "__main__":

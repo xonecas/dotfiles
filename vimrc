@@ -44,5 +44,5 @@ command! W w
 
 set t_Co=256
 set t_ut=
-colorscheme gotham256
+colorscheme BusyBee
 let g:airline_powerline_fonts=0

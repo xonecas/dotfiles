@@ -59,7 +59,7 @@ def create_vim_bundle():
 def install_pathogen():
     """ get and install the latest pathogen """
 
-    autoload = join(HOME, ".vim/autoload/pathogen.vim")
+    autoload = join(HOME, ".vim", "autoload", "pathogen.vim")
 
     if not exists(autoload):
         call(["curl", "-L", "https://tpo.pe/pathogen.vim", "-o", autoload])
@@ -69,7 +69,7 @@ def clone_plugins():
     """ read from the list and clone each one """
 
     plugin_list = join(PWD, "vim_plugins.txt")
-    bundle = join(HOME, ".vim/bundle")
+    bundle = join(HOME, ".vim", "bundle")
 
     with open(plugin_list) as f:
         plugins_list = f.readlines()
@@ -99,7 +99,7 @@ def install_ohmyzsh():
 def setup_zsh():
     """ moves the file into the correct place """
 
-    theme_folder = join(HOME, ".oh-my-zsh/custom/themes")
+    theme_folder = join(HOME, ".oh-my-zsh", "custom", "themes")
 
     copyfile(join(PWD, "zshrc"), ZSHRC)
 

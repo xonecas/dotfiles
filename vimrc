@@ -3,6 +3,7 @@ syntax on
 filetype plugin indent on
 
 set relativenumber
+set ambiwidth=double
 set nocompatible
 set encoding=utf-8
 set ruler
@@ -46,4 +47,5 @@ set t_Co=256
 set t_ut=
 colorscheme noctu
 AirlineTheme murmur
+let g:airline_theme='murmur'
 let g:airline_powerline_fonts=0

@@ -46,6 +46,5 @@ command! W w
 set t_Co=256
 set t_ut=
 colorscheme noctu
-AirlineTheme murmur
 let g:airline_theme='murmur'
 let g:airline_powerline_fonts=0

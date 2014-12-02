@@ -3,7 +3,6 @@ syntax on
 filetype plugin indent on
 
 set relativenumber
-set ambiwidth=double
 set nocompatible
 set encoding=utf-8
 set ruler
@@ -29,7 +28,7 @@ set wildmode=list:longest,full
 set wildignore=*.class,*.o,*~,*.pyc,.git,third_party,node_modules
 set laststatus=2
 set list
-set listchars=tab:▸\ ,trail:•,eol:¬
+set lcs=trail:.,eol:$,tab:>-
 
 map <leader>] :bnext<CR>
 map <leader>[ :bprev<CR>

@@ -47,3 +47,6 @@ set t_ut=
 colorscheme noctu
 let g:airline_theme='murmur'
 let g:airline_powerline_fonts=0
+
+" this is because noctu sometimes uses the background color for colorcolumn
+hi ColorColumn ctermbg=008

@@ -6,7 +6,7 @@ set relativenumber
 set nocompatible
 set encoding=utf-8
 set ruler
-set colorcolumn=100
+set colorcolumn=80
 set incsearch
 set smartcase
 set smartindent

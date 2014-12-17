@@ -131,7 +131,7 @@ def main():
     setup_zsh()
 
     # tmux
-    #setup_tmux()
+    setup_tmux()
 
     print "Done, your changes will be visible when the terminal resets."
 

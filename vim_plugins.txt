@@ -10,4 +10,3 @@ https://github.com/whatyouhide/vim-gotham.git
 https://github.com/vim-scripts/BusyBee.git
 https://github.com/noahfrederick/vim-noctu.git
 https://github.com/tpope/vim-fugitive.git
-https://github.com/Yggdroot/indentLine.git

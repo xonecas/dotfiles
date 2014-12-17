@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+""" Dis is what? """
 
 from os import makedirs
 from os import remove
@@ -11,7 +12,6 @@ from os.path import splitext
 from shutil import copyfile
 from shutil import rmtree
 from subprocess import call
-from time import sleep
 
 
 HOME = expanduser("~")
@@ -71,8 +71,8 @@ def clone_plugins():
     plugin_list = join(PWD, "vim_plugins.txt")
     bundle = join(HOME, ".vim", "bundle")
 
-    with open(plugin_list) as f:
-        plugins_list = f.readlines()
+    with open(plugin_list) as read_file:
+        plugins_list = read_file.readlines()
 
         for plugin_url in plugins_list:
             plugin_url = plugin_url.rstrip()
@@ -90,10 +90,12 @@ def setup_vim():
 def install_ohmyzsh():
     """ installs oh-my-zsh """
 
-    call(["git", "clone", "https://github.com/robbyrussell/oh-my-zsh.git", ZSH])
+    call(["git",
+          "clone",
+          "https://github.com/robbyrussell/oh-my-zsh.git",
+          ZSH])
     copyfile(join(PWD, "zshrc"), ZSHRC)
     print "Don't forget to set your SHELL: chsh -s /bin/zsh"
-
 
 
 def setup_zsh():
@@ -105,7 +107,8 @@ def setup_zsh():
 
     if not exists(theme_folder):
         makedirs(theme_folder)
-    copyfile(join(PWD, "xonecas.zsh-theme"), join(theme_folder, "xonecas.zsh-theme"))
+    copyfile(join(PWD, "xonecas.zsh-theme"),
+             join(theme_folder, "xonecas.zsh-theme"))
 
 
 def setup_tmux():
@@ -114,6 +117,7 @@ def setup_tmux():
 
 
 def main():
+    """ Install all """
     clean()
 
     # vim
@@ -123,7 +127,7 @@ def main():
     setup_vim()
 
     # zsh
-    #install_ohmyzsh()
+    install_ohmyzsh()
     setup_zsh()
 
     # tmux

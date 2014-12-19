@@ -47,7 +47,7 @@ set t_ut=
 colorscheme noctu
 
 " Plugin stuff
-let g:airline_theme='dark'
+let g:airline_theme='luna'
 let g:airline_powerline_fonts=0
 
 let g:bufferline_echo=0

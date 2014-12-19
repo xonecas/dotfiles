@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 """ Dis is what? """
 
+# What is this for?
+
 from os import makedirs
 from os import remove
 from os.path import basename

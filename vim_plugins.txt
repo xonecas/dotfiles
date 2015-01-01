@@ -1,8 +1,8 @@
+https://github.com/noahfrederick/vim-noctu.git
 https://github.com/bling/vim-airline.git
 https://github.com/bling/vim-bufferline.git
 https://github.com/hynek/vim-python-pep8-indent
 https://github.com/kchmck/vim-coffee-script.git
-https://github.com/noahfrederick/vim-noctu.git
 https://github.com/pangloss/vim-javascript.git
 https://github.com/scrooloose/nerdcommenter.git
 https://github.com/scrooloose/syntastic.git
@@ -10,4 +10,3 @@ https://github.com/tpope/vim-fugitive.git
 https://github.com/tpope/vim-haml.git
 https://github.com/scrooloose/nerdtree.git
 https://github.com/kien/ctrlp.vim.git
-https://github.com/mhinz/vim-signify.git

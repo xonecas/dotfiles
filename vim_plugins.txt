@@ -1,4 +1,5 @@
 https://github.com/noahfrederick/vim-noctu.git
+https://github.com/carlson-erik/wolfpack.git
 https://github.com/bling/vim-airline.git
 https://github.com/bling/vim-bufferline.git
 https://github.com/hynek/vim-python-pep8-indent

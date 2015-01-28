@@ -44,13 +44,10 @@ command! W w
 
 set t_Co=256
 set t_ut=
-colorscheme noctu
+colorscheme wolfpack
 
 " Plugin stuff
 let g:airline_theme='luna'
 let g:airline_powerline_fonts=0
 
 let g:bufferline_echo=0
-
-" this is because noctu sometimes uses the background color for colorcolumn
-hi ColorColumn ctermbg=008

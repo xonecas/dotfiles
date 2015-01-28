@@ -45,10 +45,10 @@ command! W w
 set t_Co=256
 set t_ut=
 set background=dark
-colorscheme base16-3024
+colorscheme base16-atelierdune
 
 " Plugin stuff
-let g:airline_theme='luna'
+let g:airline_theme='base16'
 let g:airline_powerline_fonts=0
 
 let g:bufferline_echo=0

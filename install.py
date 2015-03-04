@@ -1,7 +1,9 @@
 #!/usr/bin/env python
-""" Dis is what? """
+""" Instalation script for Sean's dev environment.
+"""
 
-# What is this for?
+#import argparse
+import sys
 
 from os import makedirs
 from os import remove
@@ -124,7 +126,8 @@ def main():
     setup_zsh()
 
     print "Done, your changes will be visible when the terminal resets."
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

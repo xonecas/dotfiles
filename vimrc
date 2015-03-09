@@ -45,7 +45,7 @@ command! W w
 set t_Co=256
 set t_ut=
 set background=dark
-colorscheme molokai
+colorscheme Tomorrow
 
 " Plugin stuff
 let g:airline_theme='powerlineish'

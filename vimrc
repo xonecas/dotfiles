@@ -45,10 +45,10 @@ command! W w
 set t_Co=256
 set t_ut=
 set background=dark
-colorscheme Tomorrow
+colorscheme Tomorrow-Night-Eighties
 
 " Plugin stuff
-let g:airline_theme='powerlineish'
+let g:airline_theme='tomorrow'
 let g:airline_powerline_fonts=0
 
 let g:bufferline_echo=0

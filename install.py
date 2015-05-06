@@ -23,9 +23,7 @@ PWD = dirname(__file__)
 
 VIMRC = join(HOME, ".vimrc")
 VIM = join(HOME, ".vim")
-ZSHRC = join(HOME, ".zshrc")
-ZSH = join(HOME, ".oh-my-zsh")
-
+TMUX_CONF = join(HOME, ".tmux.conf")
 
 def clean():
     """ This rests everything """
@@ -36,11 +34,8 @@ def clean():
     if exists(VIM):
         rmtree(VIM)
 
-    if exists(ZSHRC):
-        remove(ZSHRC)
-
-    if exists(ZSH):
-        rmtree(ZSH)
+    if exists(TMUX_CONF):
+        remove(TMUX_CONF)
 
 
 def create_vim_bundle():
@@ -87,43 +82,18 @@ def setup_vim():
         copyfile(join(PWD, "vimrc"), VIMRC)
 
 
-def install_ohmyzsh():
-    """ installs oh-my-zsh """
-
-    call(["git",
-          "clone",
-          "https://github.com/robbyrussell/oh-my-zsh.git",
-          ZSH])
-    copyfile(join(PWD, "zshrc"), ZSHRC)
-    print "Don't forget to set your SHELL: chsh -s /bin/zsh"
-
-
-def setup_zsh():
-    """ moves the file into the correct place """
-
-    theme_folder = join(HOME, ".oh-my-zsh", "custom", "themes")
-
-    copyfile(join(PWD, "zshrc"), ZSHRC)
-
-    if not exists(theme_folder):
-        makedirs(theme_folder)
-    copyfile(join(PWD, "xonecas.zsh-theme"),
-             join(theme_folder, "xonecas.zsh-theme"))
-
-
 def main():
     """ Install all """
     clean()
+
+    # tmux
+    copyfile(join(PWD, "tmux.conf"), TMUX_CONF)
 
     # vim
     create_vim_bundle()
     install_pathogen()
     clone_plugins()
     setup_vim()
-
-    # zsh
-    install_ohmyzsh()
-    setup_zsh()
 
     print "Done, your changes will be visible when the terminal resets."
     return 0

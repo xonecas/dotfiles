@@ -95,7 +95,7 @@ def main():
     clone_plugins()
     setup_vim()
 
-    print "Done, your changes will be visible when the terminal resets."
+    print "Done."
     return 0
 
 

@@ -38,6 +38,11 @@ map <leader>x :bdelete<CR>
 nmap <leader>h :nohlsearch<CR>
 map j gj
 map k gk
+" I always work on 4 or 2 spaces indent files :)
+map <leader>2 :set ts=2 <bar> set sw=2<CR>
+map <leader>4 :set ts=4 <bar> set sw=4<CR>
+" don't remove indent on python comments #
+autocmd BufRead *.py inoremap # X<c-h>#<space>
 
 command! Q q
 command! W w
@@ -45,10 +50,16 @@ command! W w
 set t_Co=256
 set t_ut=
 set background=dark
-colorscheme madeofcode
+colorscheme PaperColor
 
 " Plugin stuff
-let g:airline_theme='simple'
-let g:airline_powerline_fonts=0
-
+let g:airline_theme='PaperColor'
+let g:airline_powerline_fonts=1
 let g:bufferline_echo=0
+
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_sass_checkers = ['scss_lint']
+
+" Fix to use flatlandia theme:
+"hi LineNr ctermfg=242 ctermbg=237 cterm=NONE

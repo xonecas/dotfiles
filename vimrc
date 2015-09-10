@@ -13,11 +13,6 @@ set smartindent
 set cinkeys-=0#
 set hlsearch
 set linebreak
-set autoindent
-set expandtab
-set smarttab
-set tabstop=4
-set shiftwidth=4
 set pastetoggle=<F2>
 set noswapfile
 set nobackup
@@ -25,7 +20,7 @@ set autoread
 set hidden
 set wildmenu
 set wildmode=list:longest,full
-set wildignore=*.class,*.o,*~,*.pyc,.git,third_party,node_modules
+set wildignore=*.class,*.o,*~,*.pyc,.git,third_party,node_modules,bower_components,static_root
 set laststatus=2
 set list
 set lcs=trail:.,eol:$,tab:>-
@@ -38,7 +33,14 @@ map <leader>x :bdelete<CR>
 nmap <leader>h :nohlsearch<CR>
 map j gj
 map k gk
+nmap ; :CtrlPBuffer<CR>
+nmap ' :CtrlPFile<CR>
 " I always work on 4 or 2 spaces indent files :)
+set autoindent
+set expandtab
+set smarttab
+set tabstop=2
+set shiftwidth=2
 map <leader>2 :set ts=2 <bar> set sw=2<CR>
 map <leader>4 :set ts=4 <bar> set sw=4<CR>
 " don't remove indent on python comments #
@@ -50,16 +52,18 @@ command! W w
 set t_Co=256
 set t_ut=
 set background=dark
-colorscheme PaperColor
+colorscheme gruvbox
 
 " Plugin stuff
-let g:airline_theme='PaperColor'
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts=1
-let g:bufferline_echo=0
 
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_sass_checkers = ['scss_lint']
 
-" Fix to use flatlandia theme:
-"hi LineNr ctermfg=242 ctermbg=237 cterm=NONE
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|min\.js|min\.css)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|static_root'
+
+hi IndentGuidesOdd ctermbg=237
+hi IndentGuidesEven ctermbg=238
+au VimEnter * :IndentGuidesEnable

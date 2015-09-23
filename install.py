@@ -20,7 +20,6 @@ from subprocess import call
 
 HOME = expanduser("~")
 PWD = dirname(__file__)
-
 VIMRC = join(HOME, ".vimrc")
 VIM = join(HOME, ".vim")
 TMUX_CONF = join(HOME, ".tmux.conf")
@@ -76,7 +75,7 @@ def clone_plugins():
 
 
 def setup_vim():
-    """ copy the vim file """
+    """ copy the vim file and supporting files """
 
     if not exists(VIMRC):
         copyfile(join(PWD, "vimrc"), VIMRC)

@@ -2,7 +2,7 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-set relativenumber
+set number
 set nocompatible
 set encoding=utf-8
 set ruler
@@ -52,16 +52,14 @@ command! W w
 set t_Co=256
 set t_ut=
 set background=dark
-colorscheme gruvbox
+colorscheme bubblegum-256-dark
 
 " Plugin stuff
-let g:airline_theme='gruvbox'
-let g:airline_powerline_fonts=1
-
+let g:airline_theme="bubblegum"
+let g:airline_powerline_fonts = 1
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_sass_checkers = ['scss_lint']
-
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|min\.js|min\.css)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|static_root'
 
 hi IndentGuidesOdd ctermbg=237

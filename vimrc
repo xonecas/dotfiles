@@ -62,6 +62,6 @@ let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_sass_checkers = ['scss_lint']
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|min\.js|min\.css)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|static_root'
 
-hi IndentGuidesOdd ctermbg=237
-hi IndentGuidesEven ctermbg=238
+hi IndentGuidesOdd ctermbg=235
+hi IndentGuidesEven ctermbg=236
 au VimEnter * :IndentGuidesEnable

@@ -65,7 +65,7 @@ let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|min\.js|min\.c
 
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=254
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=253
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=255
 au VimEnter * :IndentGuidesEnable
 
 " The Silver Searcher

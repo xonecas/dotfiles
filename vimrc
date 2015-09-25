@@ -51,17 +51,34 @@ command! W w
 
 set t_Co=256
 set t_ut=
-set background=dark
-colorscheme bubblegum-256-dark
+set background=light
+colorscheme lucius
+LuciusWhiteHighContrast
 
 " Plugin stuff
-let g:airline_theme="bubblegum"
+let g:airline_theme="lucius"
 let g:airline_powerline_fonts = 1
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_sass_checkers = ['scss_lint']
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|min\.js|min\.css)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|static_root'
 
-hi IndentGuidesOdd ctermbg=235
-hi IndentGuidesEven ctermbg=236
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=254
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=253
 au VimEnter * :IndentGuidesEnable
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" bind K to grep word under cursor
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>

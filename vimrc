@@ -2,7 +2,7 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
-set number
+set relativenumber
 set nocompatible
 set encoding=utf-8
 set ruler
@@ -43,30 +43,26 @@ set tabstop=2
 set shiftwidth=2
 map <leader>2 :set ts=2 <bar> set sw=2<CR>
 map <leader>4 :set ts=4 <bar> set sw=4<CR>
-" don't remove indent on python comments #
-autocmd BufRead *.py inoremap # X<c-h>#<space>
-
 command! Q q
 command! W w
 
+
+" Colors
 set t_Co=256
 set t_ut=
-set background=light
-colorscheme lucius
-LuciusWhiteHighContrast
+set background=dark
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
+
 
 " Plugin stuff
-let g:airline_theme="lucius"
+let g:airline_theme="hybrid"
 let g:airline_powerline_fonts = 1
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_sass_checkers = ['scss_lint']
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|min\.js|min\.css)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|static_root'
 
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=254
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=255
-au VimEnter * :IndentGuidesEnable
 
 " The Silver Searcher
 if executable('ag')
@@ -82,3 +78,11 @@ endif
 
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+
+" don't remove indent on python comments #
+autocmd BufNewFile,BufRead *.py inoremap # X<c-h>#<space>
+" Set the right indent for each file.
+autocmd BufNewFile,BufRead *.py ts=4 sw=4
+autocmd BufNewFile,BufRead *.html ts=2 sw=2 setf htmldjango
+autocmd BufNewFile,BufRead *.js,*.scss ts=4 sw=4

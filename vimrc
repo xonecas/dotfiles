@@ -83,6 +83,6 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " don't remove indent on python comments #
 autocmd BufNewFile,BufRead *.py inoremap # X<c-h>#<space>
 " Set the right indent for each file.
-autocmd BufNewFile,BufRead *.py ts=4 sw=4
-autocmd BufNewFile,BufRead *.html ts=2 sw=2 setf htmldjango
-autocmd BufNewFile,BufRead *.js,*.scss ts=4 sw=4
+autocmd BufNewFile,BufRead *.py :set ts=4 sw=4
+autocmd BufNewFile,BufRead *.html :set ts=2 sw=2 filetype=htmldjango
+autocmd BufNewFile,BufRead *.js,*.scss :set ts=4 sw=4

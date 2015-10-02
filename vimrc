@@ -23,7 +23,7 @@ set wildmode=list:longest,full
 set wildignore=*.class,*.o,*~,*.pyc,.git,third_party,node_modules,bower_components,static_root
 set laststatus=2
 set list
-set lcs=trail:.,eol:$,tab:>-
+set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 
 map <leader>] :bnext<CR>
 map <leader>[ :bprev<CR>
@@ -50,16 +50,15 @@ command! W w
 " Colors
 set t_Co=256
 set t_ut=
-set background=dark
-let g:hybrid_use_Xresources = 1
-colorscheme hybrid
+set background=light
+colorscheme solarized
 
 
 " Plugin stuff
-let g:airline_theme="hybrid"
+let g:airline_theme="solarized"
 let g:airline_powerline_fonts = 1
 let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_sass_checkers = ['scss_lint']
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|min\.js|min\.css)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|static_root'
 
@@ -85,4 +84,5 @@ autocmd BufNewFile,BufRead *.py inoremap # X<c-h>#<space>
 " Set the right indent for each file.
 autocmd BufNewFile,BufRead *.py :set ts=4 sw=4
 autocmd BufNewFile,BufRead *.html :set ts=2 sw=2 filetype=htmldjango
-autocmd BufNewFile,BufRead *.js,*.scss :set ts=4 sw=4
+autocmd BufNewFile,BufRead *.js,*.scss :set ts=2 sw=2
+autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript

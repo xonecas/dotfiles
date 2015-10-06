@@ -20,7 +20,7 @@ set autoread
 set hidden
 set wildmenu
 set wildmode=list:longest,full
-set wildignore=*.class,*.o,*~,*.pyc,.git,third_party,node_modules,bower_components,static_root
+"set wildignore=*.class,*.o,*~,*.pyc,.git,third_party,node_modules,bower_components,static_root
 set laststatus=2
 set list
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
@@ -50,17 +50,15 @@ command! W w
 " Colors
 set t_Co=256
 set t_ut=
-set background=light
-colorscheme solarized
+set background=dark
+colorscheme badwolf
 
 
 " Plugin stuff
-let g:airline_theme="solarized"
-let g:airline_powerline_fonts = 1
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_sass_checkers = ['scss_lint']
-let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|min\.js|min\.css)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|static_root'
+"let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend|min\.js|min\.css)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|static_root'
 
 
 " The Silver Searcher
@@ -86,3 +84,210 @@ autocmd BufNewFile,BufRead *.py :set ts=4 sw=4
 autocmd BufNewFile,BufRead *.html :set ts=2 sw=2 filetype=htmldjango
 autocmd BufNewFile,BufRead *.js,*.scss :set ts=2 sw=2
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+
+
+" lightline - badwolf
+let s:red      = '#ff2c4b'
+let s:green    = '#aeee00'
+let s:blue     = '#0a9dff'
+let s:orange   = '#ffa724'
+let s:c_red    = '196'
+let s:c_green  = '154'
+let s:c_blue   = '39'
+let s:c_orange = '214'
+let s:white    = '#f8f6f2'
+let s:c_white  = '15'
+let s:black1   = '#242321'
+let s:black2   = '#35322d'
+let s:black3   = '#45413b'
+let s:black4   = '#857f78'
+let s:c_black1 = '235'
+let s:c_black2 = '236'
+let s:c_black3 = '233'
+let s:c_black4 = '243'
+let s:p = {
+      \ 'normal':{},
+      \ 'inactive':{},
+      \ 'insert':{},
+      \ 'replace':{},
+      \ 'visual':{},
+      \ 'tabline':{}
+      \ }
+let s:p.normal.middle = [
+      \ [s:white, s:black1, s:c_white, s:c_black1]
+      \ ]
+let s:p.normal.left = [
+      \ [s:black1, s:green, s:c_black1, s:c_green],
+      \ [ s:white, s:black2, s:c_white, s:c_black2 ]
+      \ ]
+let s:p.normal.right = [
+      \ [s:black4, s:white, s:c_black4, s:c_white],
+      \ [ s:white, s:black2, s:c_white, s:c_black2 ]
+      \ ]
+let s:p.insert.left = [
+      \ [s:white, s:blue, s:c_white, s:c_blue],
+      \ [ s:white, s:black2, s:c_white, s:c_black2 ]
+      \ ]
+let s:p.visual.left = [
+      \ [s:white, s:orange, s:c_white, s:c_orange],
+      \ [ s:white, s:black2, s:c_white, s:c_black2 ]
+      \ ]
+let s:p.replace.left = [
+      \ [s:white, s:red, s:c_white, s:c_red],
+      \ [ s:white, s:black2, s:c_white, s:c_black2 ]
+      \ ]
+let s:p.inactive.middle = [
+      \ [s:white, s:black2, s:c_white, s:c_black2]
+      \ ]
+let s:p.inactive.right = [
+      \ s:p.inactive.middle[0],
+      \ s:p.inactive.middle[0]
+      \ ]
+let s:p.inactive.left = [
+      \ s:p.inactive.middle[0],
+      \ s:p.inactive.middle[0]
+      \ ]
+let s:p.tabline.middle = [
+      \ [s:white, s:black2, s:c_white, s:c_black2]
+      \ ]
+let s:p.tabline.right = [
+      \ [s:white, s:black2, s:c_white, s:c_black2]
+      \ ]
+let s:p.tabline.left = [
+      \ [s:black4, s:black2, s:c_black4, s:c_black2]
+      \ ]
+" current tab
+let s:p.tabline.tabsel = [
+      \ [s:black1, s:green, s:c_white, s:c_black4]
+      \ ]
+let g:lightline#colorscheme#badwolf#palette = lightline#colorscheme#fill(s:p)
+
+
+let g:lightline = {
+      \ 'colorscheme': 'badwolf',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
+      \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'LightLineFugitive',
+      \   'filename': 'LightLineFilename',
+      \   'fileformat': 'LightLineFileformat',
+      \   'filetype': 'LightLineFiletype',
+      \   'fileencoding': 'LightLineFileencoding',
+      \   'mode': 'LightLineMode',
+      \   'ctrlpmark': 'CtrlPMark',
+      \ },
+      \ 'component_expand': {
+      \   'syntastic': 'SyntasticStatuslineFlag',
+      \ },
+      \ 'component_type': {
+      \   'syntastic': 'error',
+      \ },
+      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ }
+
+function! LightLineModified()
+  return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightLineReadonly()
+  return &ft !~? 'help' && &readonly ? 'RO' : ''
+endfunction
+
+function! LightLineFilename()
+  let fname = expand('%:t')
+  return fname == 'ControlP' ? g:lightline.ctrlp_item :
+        \ fname == '__Tagbar__' ? g:lightline.fname :
+        \ fname =~ '__Gundo\|NERD_tree' ? '' :
+        \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \ &ft == 'unite' ? unite#get_status_string() :
+        \ &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+        \ ('' != fname ? fname : '[No Name]') .
+        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+function! LightLineFugitive()
+  try
+    if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+      let mark = ''  " edit here for cool mark
+      let _ = fugitive#head()
+      return strlen(_) ? mark._ : ''
+    endif
+  catch
+  endtry
+  return ''
+endfunction
+
+function! LightLineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! LightLineFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! LightLineFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! LightLineMode()
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? 'Tagbar' :
+        \ fname == 'ControlP' ? 'CtrlP' :
+        \ fname == '__Gundo__' ? 'Gundo' :
+        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+        \ fname =~ 'NERD_tree' ? 'NERDTree' :
+        \ &ft == 'unite' ? 'Unite' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ &ft == 'vimshell' ? 'VimShell' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! CtrlPMark()
+  if expand('%:t') =~ 'ControlP'
+    call lightline#link('iR'[g:lightline.ctrlp_regex])
+    return lightline#concatenate([g:lightline.ctrlp_prev, g:lightline.ctrlp_item
+          \ , g:lightline.ctrlp_next], 0)
+  else
+    return ''
+  endif
+endfunction
+
+let g:ctrlp_status_func = {
+  \ 'main': 'CtrlPStatusFunc_1',
+  \ 'prog': 'CtrlPStatusFunc_2',
+  \ }
+
+function! CtrlPStatusFunc_1(focus, byfname, regex, prev, item, next, marked)
+  let g:lightline.ctrlp_regex = a:regex
+  let g:lightline.ctrlp_prev = a:prev
+  let g:lightline.ctrlp_item = a:item
+  let g:lightline.ctrlp_next = a:next
+  return lightline#statusline(0)
+endfunction
+
+function! CtrlPStatusFunc_2(str)
+  return lightline#statusline(0)
+endfunction
+
+let g:tagbar_status_func = 'TagbarStatusFunc'
+
+function! TagbarStatusFunc(current, sort, fname, ...) abort
+    let g:lightline.fname = a:fname
+  return lightline#statusline(0)
+endfunction
+
+augroup AutoSyntastic
+  autocmd!
+  autocmd BufWritePost *.c,*.cpp call s:syntastic()
+augroup END
+function! s:syntastic()
+  SyntasticCheck
+  call lightline#update()
+endfunction
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0

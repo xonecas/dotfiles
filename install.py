@@ -23,6 +23,7 @@ PWD = dirname(__file__)
 VIMRC = join(HOME, ".vimrc")
 VIM = join(HOME, ".vim")
 TMUX_CONF = join(HOME, ".tmux.conf")
+BASHRC = join(HOME, ".bashrc")
 
 def clean():
     """ This rests everything """
@@ -35,6 +36,9 @@ def clean():
 
     if exists(TMUX_CONF):
         remove(TMUX_CONF)
+
+    if exists(BASHRC):
+        remove(BASHRC)
 
 
 def create_vim_bundle():
@@ -87,6 +91,9 @@ def main():
 
     # tmux
     copyfile(join(PWD, "tmux.conf"), TMUX_CONF)
+
+    # bashrc
+    copyfile(join(PWD, "bashrc"), BASHRC)
 
     # vim
     create_vim_bundle()

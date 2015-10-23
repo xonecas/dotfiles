@@ -52,7 +52,7 @@ command! W w
 set t_Co=256
 set t_ut=
 set background=dark
-colorscheme base16-railscasts
+colorscheme vimbrant
 
 
 " Plugin stuff
@@ -87,7 +87,7 @@ autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
 
 let g:lightline = {
-      \ 'colorscheme': 'base16',
+      \ 'colorscheme': 'powerline',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
       \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
@@ -107,7 +107,8 @@ let g:lightline = {
       \ 'component_type': {
       \   'syntastic': 'error',
       \ },
-      \ 'subseparator': { 'left': '|', 'right': '|' }
+      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
       \ }
 
 function! LightLineModified()

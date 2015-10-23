@@ -22,6 +22,7 @@ HOME = expanduser("~")
 PWD = dirname(__file__)
 VIMRC = join(HOME, ".vimrc")
 VIM = join(HOME, ".vim")
+VIM_COLORS = join(HOME, ".vim", "colors")
 TMUX_CONF = join(HOME, ".tmux.conf")
 BASHRC = join(HOME, ".bashrc")
 
@@ -76,6 +77,12 @@ def clone_plugins():
             plugin_url = plugin_url.rstrip()
             foldername = splitext(basename(plugin_url))[0]
             call(["git", "clone", plugin_url, join(bundle, foldername)])
+
+    vimbrant = "https://raw.githubusercontent.com/thayerwilliams/vimbrant/master/vimbrant.vim"
+    vimbrant_out = join(VIM_COLORS, "vimbrant.vim")
+    if not exists(VIM_COLORS):
+        makedirs(VIM_COLORS)
+    call(["curl", "-L", vimbrant, "-o", vimbrant_out])
 
 
 def setup_vim():

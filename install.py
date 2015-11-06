@@ -78,11 +78,12 @@ def clone_plugins():
             foldername = splitext(basename(plugin_url))[0]
             call(["git", "clone", plugin_url, join(bundle, foldername)])
 
-    vimbrant = "https://raw.githubusercontent.com/thayerwilliams/vimbrant/master/vimbrant.vim"
-    vimbrant_out = join(VIM_COLORS, "vimbrant.vim")
-    if not exists(VIM_COLORS):
-        makedirs(VIM_COLORS)
-    call(["curl", "-L", vimbrant, "-o", vimbrant_out])
+    # included in my repo of 256 colors
+    # vimbrant = "https://raw.githubusercontent.com/thayerwilliams/vimbrant/master/vimbrant.vim"
+    # vimbrant_out = join(VIM_COLORS, "vimbrant.vim")
+    # if not exists(VIM_COLORS):
+        # makedirs(VIM_COLORS)
+    # call(["curl", "-L", vimbrant, "-o", vimbrant_out])
 
 
 def setup_vim():

@@ -52,7 +52,7 @@ command! W w
 set t_Co=256
 set t_ut=
 set background=dark
-colorscheme vimbrant
+colorscheme gruvbox
 
 
 " Plugin stuff
@@ -87,7 +87,7 @@ autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
 
 let g:lightline = {
-      \ 'colorscheme': 'powerline',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ], ['ctrlpmark'] ],
       \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]

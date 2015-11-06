@@ -123,6 +123,7 @@ alias gst='git status'
 alias gc='git commit --verbose'
 alias gp='git pull --rebase'
 alias ggrep='git grep'
+alias mc='git log --pretty=format:"%h - %an, %ar : %s" | grep sean | less'
 
 export NVM_DIR="/home/vagrant/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -164,9 +165,9 @@ function __info {
   [ "$full" != "" ] && echo "$full"
 }
 
-COLOR1=$(tput setaf 6)
-COLOR2=$(tput setaf 4)
-COLOR3=$(tput setaf 5)
+COLOR1=$(tput setaf 4)
+COLOR2=$(tput setaf 7)
+COLOR3=$(tput setaf 6)
 CLEAR=$(tput sgr0)
 #PS1="$COLOR3[$COLOR2\$(__info)$COLOR3] $COLOR1☠ $COLOR3($COLOR2\w$COLOR3) \$(tput setaf 7)"
 LINE1="\[$COLOR1\]┌─\[$COLOR3\][\[$COLOR2\]\$(__info)\[$COLOR3\]]\[$COLOR1\]──\[$COLOR3\](\[$COLOR2\]\w\[$COLOR3\])\n"

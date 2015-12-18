@@ -122,6 +122,8 @@ alias g='git'
 alias gst='git status'
 alias gc='git commit --verbose'
 alias gp='git pull --rebase'
+alias gpo='git pull --rebase origin'
+alias gpo='git push origin'
 alias ggrep='git grep'
 alias mc='git log --pretty=format:"%h - %an, %ar : %s" | grep sean | less'
 

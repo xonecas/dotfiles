@@ -113,7 +113,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# I use vim
+# I use atom for now.
 export EDITOR=vim
 
 alias wo='workon agentsmith'
@@ -158,6 +158,7 @@ function __node {
 
 function __info {
   local full=(
+    $(hostname)
     $(__virtualenv)
     $(__node)
     $(__git_branch)

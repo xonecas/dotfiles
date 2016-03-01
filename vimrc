@@ -48,15 +48,7 @@ command! W w
 
 " Colors
 set t_Co=256
-set background=dark
-colorscheme gruvbox
-
-
-" Plugin stuff
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_python_checkers = ['pep8']
-let g:syntastic_sass_checkers = ['scss_lint']
-
+colorscheme base16-default
 
 " Set the right indent for each file.
 autocmd BufNewFile,BufRead *.py :set ts=4 sw=4

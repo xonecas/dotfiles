@@ -48,7 +48,7 @@ command! W w
 
 " Colors
 set t_Co=256
-colorscheme base16-default
+colorscheme default
 
 " Set the right indent for each file.
 autocmd BufNewFile,BufRead *.py :set ts=4 sw=4

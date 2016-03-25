@@ -48,7 +48,7 @@ command! W w
 
 " Colors
 set t_Co=256
-colorscheme default
+colorscheme zenburn
 
 " Set the right indent for each file.
 autocmd BufNewFile,BufRead *.py :set ts=4 sw=4

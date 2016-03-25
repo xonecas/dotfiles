@@ -170,7 +170,7 @@ function __info {
 
 COLOR1=$(tput setaf 4)
 COLOR2=$(tput setaf 2)
-COLOR3=$(tput setaf 1)
+COLOR3=$(tput setaf 5)
 CLEAR=$(tput sgr0)
 #PS1="$COLOR3[$COLOR2\$(__info)$COLOR3] $COLOR1☠ $COLOR3($COLOR2\w$COLOR3) \$(tput setaf 7)"
 LINE1="\[$COLOR1\]┌─\[$COLOR3\][\[$COLOR2\]\$(__info)\[$COLOR3\]]\[$COLOR1\]──\[$COLOR3\](\[$COLOR2\]\w\[$COLOR3\])\n"

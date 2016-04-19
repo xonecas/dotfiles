@@ -158,9 +158,14 @@ function __node {
 
 function __info {
   local full=(
-    $(hostname)
     $(__virtualenv)
     $(__node)
+  )
+  full="${full[*]}"
+  [ "$full" != "" ] && echo "$full"
+}
+function __gitinfo {
+  local full=(
     $(__git_branch)
     $(__git_dirty)
   )
@@ -170,9 +175,9 @@ function __info {
 
 COLOR1=$(tput setaf 4)
 COLOR2=$(tput setaf 2)
-COLOR3=$(tput setaf 5)
+COLOR3=$(tput setaf 3)
 CLEAR=$(tput sgr0)
-#PS1="$COLOR3[$COLOR2\$(__info)$COLOR3] $COLOR1☠ $COLOR3($COLOR2\w$COLOR3) \$(tput setaf 7)"
-LINE1="\[$COLOR1\]┌─\[$COLOR3\][\[$COLOR2\]\$(__info)\[$COLOR3\]]\[$COLOR1\]──\[$COLOR3\](\[$COLOR2\]\w\[$COLOR3\])\n"
-LINE2="\[$COLOR1\]└─> \[$COLOR3\]✭ \[\$CLEAR\]"
-PS1="$LINE1$LINE2"
+
+LINE="\[\$COLOR1\]on \[$COLOR2\]$(hostname) \[\$COLOR1\]at \[$COLOR2\]\w \[\$COLOR1\]in \[$COLOR2\]$(__gitinfo) \[\$COLOR1\]using \[$COLOR2\]$(__info) \[$COLOR3\]✭ \[\$CLEAR\]"
+
+PS1="$LINE"

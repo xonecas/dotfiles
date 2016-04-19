@@ -165,11 +165,7 @@ function __info {
   [ "$full" != "" ] && echo "$full"
 }
 function __gitinfo {
-  local full=(
-    $(__git_branch)
-    $(__git_dirty)
-  )
-  full="${full[*]}"
+  full="$(__git_branch)$(__git_dirty)"
   [ "$full" != "" ] && echo "$full"
 }
 
@@ -178,6 +174,4 @@ COLOR2=$(tput setaf 2)
 COLOR3=$(tput setaf 3)
 CLEAR=$(tput sgr0)
 
-LINE="\[\$COLOR1\]on \[$COLOR2\]$(hostname) \[\$COLOR1\]at \[$COLOR2\]\w \[\$COLOR1\]in \[$COLOR2\]$(__gitinfo) \[\$COLOR1\]using \[$COLOR2\]$(__info) \[$COLOR3\]✭ \[\$CLEAR\]"
-
-PS1="$LINE"
+PS1="\[\$COLOR1\]on \[$COLOR2\]$(hostname) \[\$COLOR1\]at \[$COLOR2\]\w \[\$COLOR1\]in \[$COLOR2\]$(__gitinfo) \[\$COLOR1\]using \[$COLOR2\]$(__info) \[$COLOR3\]✭ \[\$CLEAR\]"

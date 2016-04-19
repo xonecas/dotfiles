@@ -146,14 +146,14 @@ function __git_branch {
 
 function __virtualenv {
   local env=$(basename "$VIRTUAL_ENV")
-  [ "$env" != "" ] && echo "py:$env"
+  [ "$env" != "" ] && echo "$env"
 }
 
 function __node {
   if hash node 2>/dev/null; then
     local v=$(node -v)
   fi
-  [ "$v" != "" ] && echo "n:${v:1}"
+  [ "$v" != "" ] && echo "${v:1}"
 }
 
 function __info {
@@ -164,8 +164,13 @@ function __info {
   full="${full[*]}"
   [ "$full" != "" ] && echo "$full"
 }
+
 function __gitinfo {
-  full="$(__git_branch)$(__git_dirty)"
+  local full=(
+    $(__git_branch)
+    $(__git_dirty)
+  )
+  full="${full[*]}"
   [ "$full" != "" ] && echo "$full"
 }
 
@@ -174,4 +179,10 @@ COLOR2=$(tput setaf 2)
 COLOR3=$(tput setaf 3)
 CLEAR=$(tput sgr0)
 
-PS1="\[\$COLOR1\]on \[$COLOR2\]$(hostname) \[\$COLOR1\]at \[$COLOR2\]\w \[\$COLOR1\]in \[$COLOR2\]$(__gitinfo) \[\$COLOR1\]using \[$COLOR2\]$(__info) \[$COLOR3\]✭ \[\$CLEAR\]"
+HN="\[\$COLOR1\]h:\[\$COLOR2\]$(hostname)"
+DIR="\[\$COLOR1\]d:\[\$COLOR2\]\w"
+GI="\[\$COLOR1\]g:\[\$COLOR2\]$(__gitinfo)"
+N="\[\$COLOR1\]n:\[\$COLOR2\]$(__node)"
+PY="\[\$COLOR1\]py:\[\$COLOR2\]$(__virtualenv)"
+
+PS1="$HN $DIR $GI $N $PY  \[\$COLOR3\]✭ \[\$CLEAR\]"

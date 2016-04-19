@@ -185,4 +185,4 @@ GI="\[\$COLOR1\]g:\[\$COLOR2\]$(__gitinfo)"
 N="\[\$COLOR1\]n:\[\$COLOR2\]$(__node)"
 PY="\[\$COLOR1\]py:\[\$COLOR2\]$(__virtualenv)"
 
-PS1="$HN $DIR $GI $N $PY  \[\$COLOR3\]✭ \[\$CLEAR\]"
+PS1="$HN $DIR $GI  $N $PY\n\[\$COLOR3\]✭\[\$CLEAR\]  "

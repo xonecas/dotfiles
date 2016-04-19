@@ -181,8 +181,8 @@ CLEAR=$(tput sgr0)
 
 HN="\[\$COLOR1\]h:\[\$COLOR2\]$(hostname)"
 DIR="\[\$COLOR1\]d:\[\$COLOR2\]\w"
-GI="\[\$COLOR1\]g:\[\$COLOR2\]$(__gitinfo)"
-N="\[\$COLOR1\]n:\[\$COLOR2\]$(__node)"
-PY="\[\$COLOR1\]py:\[\$COLOR2\]$(__virtualenv)"
+GI="\[\$COLOR1\]g:\[\$COLOR2\]\$(__gitinfo)"
+N="\[\$COLOR1\]n:\[\$COLOR2\]\$(__node)"
+PY="\[\$COLOR1\]py:\[\$COLOR2\]\$(__virtualenv)"
 
 PS1="$HN $DIR $GI  $N $PY\n\[\$COLOR3\]✭\[\$CLEAR\]  "

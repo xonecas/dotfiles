@@ -1,1 +1,2 @@
-https://github.com/jnurmine/Zenburn.git
+https://github.com/jpo/vim-railscasts-theme.git
+https://github.com/tpope/vim-fugitive.git

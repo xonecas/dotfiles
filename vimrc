@@ -20,7 +20,6 @@ set autoread
 set hidden
 set wildmenu
 set wildmode=list:longest,full
-set laststatus=2
 set list
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 
@@ -48,7 +47,7 @@ command! W w
 
 " Colors
 set t_Co=256
-colorscheme zenburn
+colorscheme railscasts
 
 " Set the right indent for each file.
 autocmd BufNewFile,BufRead *.py :set ts=4 sw=4

@@ -48,6 +48,7 @@ command! W w
 " Colors
 set t_Co=256
 colorscheme railscasts
+hi Normal ctermbg=none
 
 " Set the right indent for each file.
 autocmd BufNewFile,BufRead *.py :set ts=4 sw=4

@@ -1,3 +1,4 @@
 https://github.com/jpo/vim-railscasts-theme.git
 https://github.com/tpope/vim-fugitive.git
 https://github.com/noahfrederick/vim-hemisu.git
+https://github.com/noahfrederick/vim-noctu.git

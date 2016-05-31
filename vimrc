@@ -47,8 +47,8 @@ command! W w
 
 " Colors
 set t_Co=256
-set background=light
-colorscheme hemisu
+set background=dark
+colorscheme noctu
 "hi Normal ctermbg=none
 
 " Set the right indent for each file.

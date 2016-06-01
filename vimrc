@@ -44,6 +44,10 @@ map <leader>4 :set ts=4 <bar> set sw=4<CR>
 command! Q q
 command! W w
 
+" Syntax helpers
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_sass_checkers = ['scss_lint']
 
 " Colors
 set t_Co=256

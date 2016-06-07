@@ -134,6 +134,8 @@ nvm use stable &>/dev/null
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 source `which virtualenvwrapper.sh`
 
+export SMITH_VM_MEMORY=4096
+
 # Prompt
 function __git_dirty {
   git diff --quiet HEAD &>/dev/null

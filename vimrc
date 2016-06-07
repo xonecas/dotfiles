@@ -22,6 +22,7 @@ set wildmenu
 set wildmode=list:longest,full
 set list
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+set backspace=2 " make backspace work like most other apps
 
 map <leader>] :bnext<CR>
 map <leader>[ :bprev<CR>

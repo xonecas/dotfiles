@@ -20,6 +20,7 @@ set autoread
 set hidden
 set wildmenu
 set wildmode=list:longest,full
+set wildignore=*.pyc
 set list
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set backspace=2 " make backspace work like most other apps
@@ -32,7 +33,6 @@ map <leader>x :bdelete<CR>
 nmap <leader>h :nohlsearch<CR>
 map j gj
 map k gk
-nmap <leader>n :NERDTreeToggle<CR>
 
 " I always work on 4 or 2 spaces indent files :)
 set autoindent

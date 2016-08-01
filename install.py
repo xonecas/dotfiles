@@ -98,10 +98,10 @@ def main():
     clean()
 
     # tmux
-    copyfile(join(PWD, "tmux.conf"), TMUX_CONF)
+    #copyfile(join(PWD, "tmux.conf"), TMUX_CONF)
 
     # bashrc
-    copyfile(join(PWD, "bashrc"), BASHRC)
+    #copyfile(join(PWD, "bashrc"), BASHRC)
 
     # vim
     create_vim_bundle()

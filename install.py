@@ -103,6 +103,7 @@ def main():
     setup_vim()
 
     print "Done."
+    print "Don't forget to run `rake make` in the command-T dir"
     return 0
 
 

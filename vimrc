@@ -53,7 +53,7 @@ let g:syntastic_sass_checkers = ['scss_lint']
 " Colors
 set t_Co=256
 set background=dark
-colorscheme noctu
+colorscheme badwolf
 "hi Normal ctermbg=none
 
 " Set the right indent for each file.

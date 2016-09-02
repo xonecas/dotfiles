@@ -1,5 +1,6 @@
 https://github.com/tpope/vim-fugitive.git
-https://github.com/noahfrederick/vim-noctu.git
-https://github.com/sjl/badwolf.git
 https://github.com/wincent/command-t.git
 https://github.com/scrooloose/syntastic.git
+https://github.com/sjl/badwolf.git
+https://github.com/YorickPeterse/happy_hacking.vim.git
+https://github.com/aliou/moriarty.vim.git

@@ -2,7 +2,6 @@
 """ Instalation script for Sean's dev environment.
 """
 
-#import argparse
 import sys
 
 from os import makedirs
@@ -26,8 +25,9 @@ VIM_COLORS = join(HOME, ".vim", "colors")
 TMUX_CONF = join(HOME, ".tmux.conf")
 BASHRC = join(HOME, ".bashrc")
 
+
 def clean():
-    """ This rests everything """
+    """ This resets everything """
 
     if exists(VIMRC):
         remove(VIMRC)
@@ -35,11 +35,11 @@ def clean():
     if exists(VIM):
         rmtree(VIM)
 
-    if exists(TMUX_CONF):
-        remove(TMUX_CONF)
+    # if exists(TMUX_CONF):
+        # remove(TMUX_CONF)
 
-    if exists(BASHRC):
-        remove(BASHRC)
+    # if exists(BASHRC):
+        # remove(BASHRC)
 
 
 def create_vim_bundle():
@@ -78,13 +78,6 @@ def clone_plugins():
             foldername = splitext(basename(plugin_url))[0]
             call(["git", "clone", plugin_url, join(bundle, foldername)])
 
-    # included in my repo of 256 colors
-    # vimbrant = "https://raw.githubusercontent.com/thayerwilliams/vimbrant/master/vimbrant.vim"
-    # vimbrant_out = join(VIM_COLORS, "vimbrant.vim")
-    # if not exists(VIM_COLORS):
-        # makedirs(VIM_COLORS)
-    # call(["curl", "-L", vimbrant, "-o", vimbrant_out])
-
 
 def setup_vim():
     """ copy the vim file and supporting files """
@@ -98,10 +91,10 @@ def main():
     clean()
 
     # tmux
-    #copyfile(join(PWD, "tmux.conf"), TMUX_CONF)
+    # copyfile(join(PWD, "tmux.conf"), TMUX_CONF)
 
     # bashrc
-    #copyfile(join(PWD, "bashrc"), BASHRC)
+    # copyfile(join(PWD, "bashrc"), BASHRC)
 
     # vim
     create_vim_bundle()

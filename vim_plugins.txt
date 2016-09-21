@@ -1,6 +1,10 @@
 https://github.com/tpope/vim-fugitive.git
 https://github.com/wincent/command-t.git
 https://github.com/scrooloose/syntastic.git
+https://github.com/scrooloose/nerdcommenter.git
+https://github.com/scrooloose/nerdtree.git
+https://github.com/hynek/vim-python-pep8-indent.git
+https://github.com/pangloss/vim-javascript.git
+https://github.com/tpope/vim-haml.git
 https://github.com/sjl/badwolf.git
-https://github.com/YorickPeterse/happy_hacking.vim.git
-https://github.com/aliou/moriarty.vim.git
+https://github.com/w0ng/vim-hybrid.git

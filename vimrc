@@ -28,9 +28,11 @@ set backspace=2 " make backspace work like most other apps
 map <leader>] :bnext<CR>
 map <leader>[ :bprev<CR>
 nmap <leader>e :e#<CR>
-map <leader>b :buffers<CR>
+map <leader>b :CommandTBuffer<CR>
+map <leader>r :CommandTMRU<CR>
 map <leader>x :bdelete<CR>
 nmap <leader>h :nohlsearch<CR>
+map <leader>n :NERDTreeToggle<CR>
 map j gj
 map k gk
 
@@ -50,10 +52,13 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_sass_checkers = ['scss_lint']
 
+" use git file scanner for Cmd+T
+let g:CommandTFileScanner = 'git'
+
 " Colors
 set t_Co=256
 set background=dark
-colorscheme badwolf
+colorscheme hybrid
 "hi Normal ctermbg=none
 
 " Set the right indent for each file.

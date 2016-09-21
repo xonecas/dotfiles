@@ -78,6 +78,14 @@ def clone_plugins():
             foldername = splitext(basename(plugin_url))[0]
             call(["git", "clone", plugin_url, join(bundle, foldername)])
 
+    # install smyck:
+    makedirs(VIM_COLORS)
+    smyck = ("https://raw.githubusercontent.com/hukl/Smyck-Color-Scheme/" +
+             "master/smyck.vim")
+    local = join(VIM_COLORS, 'smyck.vim')
+
+    call(["curl", "-L", smyck, "-o", local])
+
 
 def setup_vim():
     """ copy the vim file and supporting files """

@@ -24,6 +24,7 @@ set wildignore=*.pyc
 set list
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set backspace=2 " make backspace work like most other apps
+set laststatus=2
 
 map <leader>] :bnext<CR>
 map <leader>[ :bprev<CR>
@@ -55,14 +56,46 @@ let g:syntastic_sass_checkers = ['scss_lint']
 " use git file scanner for Cmd+T
 let g:CommandTFileScanner = 'git'
 
-" Colors
-set t_Co=256
-set background=dark
-colorscheme hybrid
-"hi Normal ctermbg=none
+let g:airline_powerline_fonts=1
+let g:closetag_filenames = "*.html,*.jinja2,*.jinja2_fe"
+
+" Tagbar stuffs
+nmap <F8> :TagbarToggle<CR>
 
 " Set the right indent for each file.
 autocmd BufNewFile,BufRead *.py :set ts=4 sw=4
 autocmd BufNewFile,BufRead *.html :set ts=2 sw=2 filetype=htmldjango
-autocmd BufNewFile,BufRead *.js,*.scss :set ts=2 sw=2
+autocmd BufNewFile,BufRead *.js,*.scss, :set ts=2 sw=2
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+autocmd BufNewFile,BufRead *.jinja2,*.jinja2_fe :set ts=2 sw=2 filetype=jinja
+
+" Colors
+if has("termguicolors")
+  set termguicolors
+endif
+set t_Co=256
+set background=dark
+
+"colorscheme seattle
+"colorscheme pencil
+colorscheme badwolf
+"colorscheme distinguished
+"colorscheme hemisu
+"colorscheme hybrid
+"colorscheme jellybeans
+"colorscheme molokai
+"colorscheme nord
+"colorscheme quantum
+"colorscheme spacegray
+"colorscheme tender
+"colorscheme getafe
+"colorscheme monrovia
+"colorscheme minimalist
+"let g:airline_theme='minimalist'
+"let g:airline_theme='bubblegum'
+"let g:airline_theme='distinguished'
+"let g:airline_theme='quantum'
+"let g:airline_theme='tender'
+"let g:molokai_original=1
+"let g:quantum_black = 1
+"let g:rehash256=1

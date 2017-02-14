@@ -1,5 +1,17 @@
 #!/usr/bin/env python
 """ Instalation script for Sean's dev environment.
+
+    @TODO:
+
+        * Create function that reads from current enviroment and updates
+        the list of plugins, saves a copy of the current vimrc. This will be
+        make managing different setups easier.
+
+        * Change the install command to allow specifying a branch, again
+        this is to cater to multiple setups.
+
+        * Call necessary commands after each install.
+
 """
 
 import sys
@@ -22,8 +34,6 @@ PWD = dirname(__file__)
 VIMRC = join(HOME, ".vimrc")
 VIM = join(HOME, ".vim")
 VIM_COLORS = join(HOME, ".vim", "colors")
-TMUX_CONF = join(HOME, ".tmux.conf")
-BASHRC = join(HOME, ".bashrc")
 
 
 def clean():
@@ -34,12 +44,6 @@ def clean():
 
     if exists(VIM):
         rmtree(VIM)
-
-    # if exists(TMUX_CONF):
-        # remove(TMUX_CONF)
-
-    # if exists(BASHRC):
-        # remove(BASHRC)
 
 
 def create_vim_bundle():
@@ -78,14 +82,6 @@ def clone_plugins():
             foldername = splitext(basename(plugin_url))[0]
             call(["git", "clone", plugin_url, join(bundle, foldername)])
 
-    # install smyck:
-    makedirs(VIM_COLORS)
-    smyck = ("https://raw.githubusercontent.com/hukl/Smyck-Color-Scheme/" +
-             "master/smyck.vim")
-    local = join(VIM_COLORS, 'smyck.vim')
-
-    call(["curl", "-L", smyck, "-o", local])
-
 
 def setup_vim():
     """ copy the vim file and supporting files """
@@ -97,12 +93,6 @@ def setup_vim():
 def main():
     """ Install all """
     clean()
-
-    # tmux
-    # copyfile(join(PWD, "tmux.conf"), TMUX_CONF)
-
-    # bashrc
-    # copyfile(join(PWD, "bashrc"), BASHRC)
 
     # vim
     create_vim_bundle()

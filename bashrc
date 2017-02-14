@@ -46,14 +46,14 @@ esac
 #force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
+  if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
+  else
+    color_prompt=
+  fi
 fi
 
 if [ "$color_prompt" = yes ]; then
@@ -134,7 +134,7 @@ nvm use stable &>/dev/null
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 source `which virtualenvwrapper.sh`
 
-export SMITH_VM_MEMORY=4096
+export SMITH_VM_MEMORY=6144
 
 # Prompt
 function __git_dirty {
@@ -176,8 +176,8 @@ function __gitinfo {
   [ "$full" != "" ] && echo "$full"
 }
 
-COLOR1=$(tput setaf 4)
-COLOR2=$(tput setaf 2)
+COLOR1=$(tput setaf 7)
+COLOR2=$(tput setaf 4)
 COLOR3=$(tput setaf 3)
 CLEAR=$(tput sgr0)
 
